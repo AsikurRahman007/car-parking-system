@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="333.0" prefWidth="461.0" style="-fx-background-color: #FD1D1D;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="car_parking_system.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="333.0" prefWidth="461.0" style="-fx-background-color: #FD1D1D;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_parking_system.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Label layoutX="77.0" layoutY="169.0" text="Admin :">
@@ -29,7 +29,7 @@
       <TextField fx:id="adminField" layoutX="160.0" layoutY="169.0" promptText="Enter Admin Name" />
       <PasswordField fx:id="passwordField" layoutX="160.0" layoutY="220.0" promptText="Enter Password" />
       <Button fx:id="login" layoutX="103.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
-      <Button layoutX="196.0" layoutY="281.0" mnemonicParsing="false" text="New Car Parking" />
+      <Button fx:id="newCarParking" layoutX="196.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleNewCarParking" text="New Car Parking" />
       <FontAwesomeIcon glyphName="CAR" layoutX="196.0" layoutY="73.0" size="5em" />
     </children>
 </AnchorPane>

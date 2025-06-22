@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="441.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="car_parking_system.New_Car_ParkingController">
+    <stylesheets>
+        <URL value="@new_car_parking.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="33.0" layoutY="81.0" text="Car Number:" textFill="#220000">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="128.0" text="Full Name:" textFill="#1e0000">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="169.0" text="Gender:" textFill="#140000">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="216.0" text="Position:" textFill="#110202">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="260.0" text="Brand:" textFill="#0a0000">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="375.0" text="Track No:" textFill="#070000">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="141.0" layoutY="25.0" text="New Car Parking" textFill="#dd1818" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="321.0" text="Lap No:" textFill="#070000">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="417.0" text="Mobile No:" textFill="#030000">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="129.0" layoutY="79.0" promptText="Enter Car No" />
+      <TextField layoutX="129.0" layoutY="126.0" promptText="Enter Full_Name" />
+      <RadioButton layoutX="102.0" layoutY="171.0" mnemonicParsing="false" text="Male" />
+      <RadioButton layoutX="178.0" layoutY="171.0" mnemonicParsing="false" text="Female" />
+      <RadioButton layoutX="276.0" layoutY="170.0" mnemonicParsing="false" text="Others" />
+      <TextField layoutX="129.0" layoutY="214.0" promptText="Enter Position" />
+      <ComboBox layoutX="133.0" layoutY="258.0" prefWidth="150.0" promptText="Select Brand" />
+      <TextField layoutX="129.0" layoutY="316.0" promptText="Lap No" />
+      <TextField layoutX="129.0" layoutY="369.0" promptText="Track No" />
+      <TextField layoutX="130.0" layoutY="415.0" promptText="Enter Mobile No" />
+      <Button layoutX="184.0" layoutY="463.0" mnemonicParsing="false" text="OK">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
