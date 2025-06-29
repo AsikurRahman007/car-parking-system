@@ -9,41 +9,30 @@ import javafx.scene.control.*;
 
 public class New_Car_ParkingController implements Initializable {
 
-    @FXML
     private TextField carNumberField;
 
-    @FXML
     private TextField fullNameField;
 
-    @FXML
     private RadioButton maleRadio;
 
-    @FXML
     private RadioButton femaleRadio;
 
-    @FXML
     private RadioButton othersRadio;
 
-    @FXML
     private ToggleGroup genderGroup;
 
-    @FXML
     private TextField positionField;
 
-    @FXML
     private ComboBox<String> brandComboBox;
 
-    @FXML
     private TextField lapNumberField;
 
-    @FXML
     private TextField trackNumberField;
 
-    @FXML
     private TextField mobileNumberField;
-
     @FXML
-    private Button okButton;
+    private Button Rel_Parking;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,7 +49,6 @@ public class New_Car_ParkingController implements Initializable {
         if (othersRadio != null) othersRadio.setToggleGroup(genderGroup);
     }
 
-    @FXML
     private void handleOkButton(ActionEvent event) {
         // Retrieve input values
         String carNumber = carNumberField.getText();
@@ -83,5 +71,9 @@ public class New_Car_ParkingController implements Initializable {
         System.out.println("Lap No: " + lapNo);
         System.out.println("Track No: " + trackNo);
         System.out.println("Mobile No: " + mobile);
+    }
+
+    @FXML
+    private void RelesedActionMethod(ActionEvent event) {
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="441.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="car_parking_system.New_Car_ParkingController">
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="441.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_parking_system.New_Car_ParkingController">
     <stylesheets>
         <URL value="@new_car_parking.css" />
     </stylesheets>
@@ -69,9 +69,14 @@
       <TextField layoutX="129.0" layoutY="316.0" promptText="Lap No" />
       <TextField layoutX="129.0" layoutY="369.0" promptText="Track No" />
       <TextField layoutX="130.0" layoutY="415.0" promptText="Enter Mobile No" />
-      <Button layoutX="184.0" layoutY="463.0" mnemonicParsing="false" text="OK">
+      <Button layoutX="136.0" layoutY="463.0" mnemonicParsing="false" text="OK">
          <font>
             <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="Rel_Parking" layoutX="213.0" layoutY="461.0" mnemonicParsing="false" onAction="#RelesedActionMethod" text="Released Parking">
+         <font>
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
    </children>
