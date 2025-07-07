@@ -32,16 +32,33 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void handleLogin(ActionEvent event) {
-        String admin = adminField.getText();
-        String password = passwordField.getText();
+   private void handleLogin(ActionEvent event) {
+    String admin = adminField.getText();
+    String password = passwordField.getText();
 
-        if (admin.equals("admin") && password.equals("1234")) {
-            showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, Admin!");
-        } else {
-            showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid admin name or password.");
+    if (admin.equals("admin") && password.equals("1234")) {
+        showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, Admin!");
+
+        try {
+            Parent dashboardRoot = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+            Stage dashboardStage = new Stage();
+            dashboardStage.setTitle("Dashboard");
+            dashboardStage.setScene(new Scene(dashboardRoot));
+            dashboardStage.show();
+
+            // Close login window
+            Stage loginStage = (Stage) login.getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "Unable to load Dashboard.");
         }
+
+    } else {
+        showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid admin name or password.");
     }
+}
 
     @FXML
     private void handleNewCarParking(ActionEvent event) {
