@@ -25,6 +25,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Button newCarParking;
+    @FXML
+    private Label label;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,4 +84,4 @@ public class FXMLDocumentController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
-}
+} 

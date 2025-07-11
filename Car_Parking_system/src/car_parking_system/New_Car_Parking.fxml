@@ -69,14 +69,19 @@
       <TextField layoutX="129.0" layoutY="316.0" promptText="Lap No" />
       <TextField layoutX="129.0" layoutY="369.0" promptText="Track No" />
       <TextField layoutX="130.0" layoutY="415.0" promptText="Enter Mobile No" />
-      <Button layoutX="136.0" layoutY="463.0" mnemonicParsing="false" text="OK">
+      <Button layoutX="200.0" layoutY="465.0" mnemonicParsing="false" text="OK">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="Rel_Parking" layoutX="213.0" layoutY="461.0" mnemonicParsing="false" onAction="#RelesedActionMethod" text="Released Parking">
+      <Button fx:id="Rel_Parking" layoutX="262.0" layoutY="463.0" mnemonicParsing="false" onAction="#RelesedActionMethod" text="Released Parking">
          <font>
             <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="tg1" layoutX="50.0" layoutY="467.0" mnemonicParsing="false" onAction="#GenaratingActionButton" text="Token Generator">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </Button>
    </children>

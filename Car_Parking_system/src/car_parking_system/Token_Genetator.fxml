@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="car_parking_system.Token_GenetatorController">
+    <stylesheets>
+        <URL value="@token_genetator.css" />
+    </stylesheets>
+   <children>
+      <FontAwesomeIcon glyphName="CAR" layoutX="123.0" layoutY="117.0" size="10em" text="" wrappingWidth="115.0" />
+      <Label layoutX="279.0" layoutY="31.0" prefHeight="86.0" prefWidth="391.0" text="Car Parking System" textFill="#971111" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="38.0" />
+         </font>
+      </Label>
+      <TextField fx:id="car_no1" layoutX="215.0" layoutY="150.0" prefHeight="50.0" prefWidth="300.0" promptText="Enter Car Number">
+         <font>
+            <Font name="System Italic" size="23.0" />
+         </font>
+      </TextField>
+      <Button fx:id="g_t1" layoutX="216.0" layoutY="213.0" mnemonicParsing="false" onAction="#SubmitAction" prefHeight="32.0" prefWidth="300.0" style="-fx-background-color: #0066b2;" text="Genetarte Token" textFill="#f4ff7d">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="220.0" layoutY="267.0" text="Token :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="d_p_r1" layoutX="222.0" layoutY="309.0" mnemonicParsing="false" onAction="#ReceiptActionButton" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #00AB66#00AB66;" text="Download PDF Receipt">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
