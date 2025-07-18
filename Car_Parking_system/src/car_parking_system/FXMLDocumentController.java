@@ -2,6 +2,10 @@ package car_parking_system;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,42 +29,63 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Button newCarParking;
+
     @FXML
     private Label label;
 
+    private Connection connect;
+    private PreparedStatement prepare;
+    private ResultSet result;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialization if needed
+        // Initialization logic if needed
     }
 
     @FXML
-   private void handleLogin(ActionEvent event) {
-    String admin = adminField.getText();
-    String password = passwordField.getText();
+    private void handleLogin(ActionEvent event) throws SQLException {
+        String username = adminField.getText();
+        String password = passwordField.getText();
 
-    if (admin.equals("admin") && password.equals("1234")) {
-        showAlert(Alert.AlertType.INFORMATION, "Login Successful", "Welcome, Admin!");
-
-        try {
-            Parent dashboardRoot = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-            Stage dashboardStage = new Stage();
-            dashboardStage.setTitle("Dashboard");
-            dashboardStage.setScene(new Scene(dashboardRoot));
-            dashboardStage.show();
-
-            // Close login window
-            Stage loginStage = (Stage) login.getScene().getWindow();
-            loginStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Unable to load Dashboard.");
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please fill all blank fields");
+            return;
         }
 
-    } else {
-        showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid admin name or password.");
+        String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+        connect = database.connectDb();
+
+        try {
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, username);
+            prepare.setString(2, password);
+            result = prepare.executeQuery();
+
+            if (result.next()) {
+                // Login successful - open Dashboard
+                Parent dashboardRoot = FXMLLoader.load(getClass().getResource("Dasboard.fxml"));
+                Stage dashboardStage = new Stage();
+                dashboardStage.setTitle("Dashboard");
+                dashboardStage.setScene(new Scene(dashboardRoot));
+                dashboardStage.show();
+
+                // Close login window
+                Stage loginStage = (Stage) login.getScene().getWindow();
+                loginStage.close();
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
+            }
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "Unable to process login.");
+        } finally {
+            // Clean up resources
+            if (result != null) result.close();
+            if (prepare != null) prepare.close();
+            if (connect != null) connect.close();
+        }
     }
-}
 
     @FXML
     private void handleNewCarParking(ActionEvent event) {
@@ -84,4 +109,4 @@ public class FXMLDocumentController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
-} 
+}
