@@ -2,19 +2,15 @@ package car_parking_system;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class FXMLDocumentController implements Initializable {
 
@@ -43,54 +39,55 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void handleLogin(ActionEvent event) throws SQLException {
-        String username = adminField.getText();
-        String password = passwordField.getText();
+    private void handleLogin(ActionEvent event) {
+        String username = adminField.getText().trim();
+        String password = passwordField.getText().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Please fill all blank fields");
+            showAlert(Alert.AlertType.ERROR, "Login Error", "Please enter both username and password.");
             return;
         }
 
         String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
-        connect = database.connectDb();
 
         try {
+            connect = database.connectDb();
             prepare = connect.prepareStatement(sql);
             prepare.setString(1, username);
             prepare.setString(2, password);
             result = prepare.executeQuery();
 
             if (result.next()) {
-                // Login successful - open Dashboard
-                Parent dashboardRoot = FXMLLoader.load(getClass().getResource("Dasboard.fxml"));
-                Stage dashboardStage = new Stage();
-                dashboardStage.setTitle("Dashboard");
-                dashboardStage.setScene(new Scene(dashboardRoot));
-                dashboardStage.show();
+                // Login success
+                Parent root = FXMLLoader.load(getClass().getResource("/car_parking_system/Dasboard.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Dashboard");
+                stage.setScene(new Scene(root));
+                stage.show();
 
                 // Close login window
-                Stage loginStage = (Stage) login.getScene().getWindow();
-                loginStage.close();
+                ((Stage) login.getScene().getWindow()).close();
             } else {
                 showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
             }
-
         } catch (SQLException | IOException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Unable to process login.");
+            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred during login: " + e.getMessage());
         } finally {
-            // Clean up resources
-            if (result != null) result.close();
-            if (prepare != null) prepare.close();
-            if (connect != null) connect.close();
+            try {
+                if (result != null) result.close();
+                if (prepare != null) prepare.close();
+                if (connect != null) connect.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
     @FXML
     private void handleNewCarParking(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("New_Car_Parking.fxml"));
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/car_parking_system/New_Car_Parking.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("New Car Parking");
