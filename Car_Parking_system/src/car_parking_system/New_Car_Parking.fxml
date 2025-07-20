@@ -56,7 +56,7 @@
          </font>
       </Label>
       <TextField fx:id="cno1" layoutX="148.0" layoutY="99.0" promptText="Enter Car No" />
-      <TextField fx:id="fulln1" layoutX="148.0" layoutY="146.0" promptText="Enter Full_Name" />
+      <TextField fx:id="fulln1" layoutX="148.0" layoutY="146.0" promptText="Enter Full Name" />
       <RadioButton fx:id="m11" layoutX="122.0" layoutY="191.0" mnemonicParsing="false" text="Male" />
       <RadioButton fx:id="f11" layoutX="198.0" layoutY="191.0" mnemonicParsing="false" text="Female" />
       <RadioButton fx:id="o11" layoutX="296.0" layoutY="190.0" mnemonicParsing="false" text="Others" />
@@ -64,7 +64,7 @@
       <ComboBox fx:id="b11" layoutX="153.0" layoutY="278.0" prefWidth="150.0" promptText="Select Brand" />
       <TextField fx:id="l11" layoutX="149.0" layoutY="336.0" promptText="Lap No" />
       <TextField fx:id="t11" layoutX="149.0" layoutY="389.0" promptText="Track No" />
-      <TextField fx:id="m11" layoutX="150.0" layoutY="435.0" promptText="Enter Mobile No" />
+      <TextField fx:id="mobileNumberField" layoutX="150.0" layoutY="435.0" promptText="Enter Mobile No" />
       <Button fx:id="ok1" layoutX="221.0" layoutY="485.0" mnemonicParsing="false" text="OK">
          <font>
             <Font name="System Bold" size="14.0" />
