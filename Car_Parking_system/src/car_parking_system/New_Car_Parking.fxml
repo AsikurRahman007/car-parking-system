@@ -65,7 +65,7 @@
       <TextField fx:id="l11" layoutX="149.0" layoutY="336.0" promptText="Lap No" />
       <TextField fx:id="t11" layoutX="149.0" layoutY="389.0" promptText="Track No" />
       <TextField fx:id="mobileNumberField" layoutX="150.0" layoutY="435.0" promptText="Enter Mobile No" />
-      <Button fx:id="ok1" layoutX="221.0" layoutY="485.0" mnemonicParsing="false" text="OK">
+      <Button fx:id="ok1" layoutX="218.0" layoutY="485.0" mnemonicParsing="false" text="OK">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
