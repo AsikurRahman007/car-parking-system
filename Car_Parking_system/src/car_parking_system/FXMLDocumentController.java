@@ -98,6 +98,7 @@ public class FXMLDocumentController implements Initializable {
             showAlert(Alert.AlertType.ERROR, "Error", "Unable to load New Car Parking screen.");
         }
     }
+    
 
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
