@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="393.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_parking_system.AllRecordsController">
+    <children>
+        <VBox spacing="10" style="-fx-background-color: #1da1f2;" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+            <children>
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="All Parking Records" underline="true" />
+                <TableView fx:id="recordsTable" editable="false" prefHeight="300" prefWidth="580">
+                    <columns>
+                        <TableColumn fx:id="colOwnerName" prefWidth="120" text="Owner Name" />
+                        <TableColumn fx:id="colCarName" prefWidth="120" text="Car Name" />
+                        <TableColumn fx:id="colCarNumber" prefWidth="120" text="Car Number" />
+                        <TableColumn fx:id="colEntryDate" prefWidth="110" text="Entry Date" />
+                        <TableColumn fx:id="colExitDate" prefWidth="110" text="Exit Date" />
+                    </columns>
+                </TableView>
+                <Button fx:id="btnBack" onAction="#handleBack" style="-fx-background-color: #002244;" text="Back" textFill="WHITE" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
