@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="692.0" style="-fx-background-color: #57C785;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="car_parking_system.DasboardController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="692.0" style="-fx-background-color: #57C785;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_parking_system.DasboardController">
    <children>
       <Label layoutX="183.0" layoutY="29.0" prefHeight="49.0" prefWidth="371.0" text="CAR PARKING SYSTEM" underline="true">
          <font>
@@ -57,9 +56,19 @@
       <TextField fx:id="cn11" layoutX="195.0" layoutY="315.0" prefHeight="25.0" prefWidth="218.0" promptText="Car Number" />
       <DatePicker fx:id="ed1" layoutX="194.0" layoutY="359.0" prefHeight="25.0" prefWidth="227.0" promptText="Entry Date" />
       <DatePicker fx:id="ed11" layoutX="190.0" layoutY="406.0" prefHeight="25.0" prefWidth="234.0" promptText="Exit Date" />
-      <Button fx:id="sub1" layoutX="274.0" layoutY="449.0" mnemonicParsing="false" onAction="#SubmitActionButton" style="-fx-background-color: #57C785;" text="Submit">
+      <Button fx:id="sub1" layoutX="144.0" layoutY="453.0" mnemonicParsing="false" onAction="#SubmitActionButton" style="-fx-background-color: #57C785;" text="Submit" underline="true">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="tg1" layoutX="256.0" layoutY="453.0" mnemonicParsing="false" onAction="#GeneratingActionButton" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #0E3386;" text="Token Generator" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="rs1" layoutX="407.0" layoutY="454.0" mnemonicParsing="false" onAction="#RelesedActionButton" style="-fx-background-color: #0E3386;" text="Relesed Car Parking" textFill="#ffd3d3">
+         <font>
+            <Font name="System Bold" size="13.0" />
          </font>
       </Button>
    </children>
