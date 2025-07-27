@@ -1,6 +1,8 @@
 package car_parking_system;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,6 +26,8 @@ public class Token_GenetatorController implements Initializable {
     private Button d_p_r1; // Button to display receipt
     @FXML
     private TextField car_no1; // TextField for car number
+    @FXML
+    private Button btnBack; // Button to go back
 
     /**
      * Initializes the controller class.
@@ -41,7 +46,7 @@ public class Token_GenetatorController implements Initializable {
             return;
         }
 
-        // Logic to generate a token (for demonstration, we just show a message)
+        // Generate a unique token
         String token = generateToken(carNumber);
         showAlert("Token Generated", "Your token for car " + carNumber + " is: " + token);
     }
@@ -55,14 +60,31 @@ public class Token_GenetatorController implements Initializable {
             return;
         }
 
-        // Logic to display receipt (for demonstration, we just show a message)
-        showAlert("Receipt", "Receipt for car " + carNumber + " has been generated.");
+        // Generate a sample receipt
+        String receipt = generateReceipt(carNumber);
+        showAlert("Receipt", receipt);
     }
 
-    // Method to generate a token (for demonstration purposes)
+    @FXML
+    private void handleBack(ActionEvent event) {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        stage.close(); // Returns to the still-open Dashboard window
+    }
+
+    // Method to generate a token (using a random number with car number prefix)
     private String generateToken(String carNumber) {
-        // In a real application, you would generate a unique token
-        return "TOKEN-" + carNumber.hashCode(); // Simple token generation using hash code
+        int randomNum = (int) (Math.random() * 9000) + 1000; // 4-digit random number
+        return "TOK-" + carNumber + "-" + randomNum; // e.g., TOK-ABC123-5678
+    }
+
+    // Method to generate a receipt
+    private String generateReceipt(String carNumber) {
+        return "=== Parking Receipt ===\n" +
+               "Date: " + LocalDate.now() + "\n" + // e.g., 2025-07-27
+               "Time: " + LocalTime.now() + "\n" + // e.g., 03:44 PM +06 on July 27, 2025
+               "Car Number: " + carNumber + "\n" +
+               "Token: " + generateToken(carNumber) + "\n" +
+               "======================";
     }
 
     // Method to show alerts
