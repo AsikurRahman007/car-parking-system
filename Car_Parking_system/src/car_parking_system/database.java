@@ -17,7 +17,7 @@ public class database {
         
         // root is the default username of database and "" or null is the default password 
         
-        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/car1", "root","");
+        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/parking_db", "root","");
         
         return connect; 
         }catch(Exception e){e.printStackTrace();}
